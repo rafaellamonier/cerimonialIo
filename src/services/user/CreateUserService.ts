@@ -27,6 +27,8 @@ export class CreateUserService {
 			password: hashedPassword,
 		});
 
-		return user;
+		const { password: _, ...userWithoutPassword } = user;
+
+		return userWithoutPassword;
 	}
 }

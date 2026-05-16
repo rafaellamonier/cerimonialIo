@@ -1,9 +1,10 @@
 import {
+  NextFunction,
   Request,
-  Response,
-  NextFunction
+  Response
 } from "express";
 import { ZodError } from "zod";
+import { AppError } from "../errors/AppError";
 
 export function errorMiddleware(
   error: Error,
@@ -16,13 +17,19 @@ export function errorMiddleware(
       status: "error",
       message: "Validation failed",
       errors: error.flatten((issue) => issue.message).fieldErrors
-    })
-  }
+    });
+  };
 
-  console.log(error)
+  if (error instanceof AppError) {
+    return res.status(error.statusCode).json({
+      status: "error",
+      message: error.message
+    });
+  };
 
+  console.error(error);
   return res.status(500).json({
     status: "error",
     message: "Internal server error"
-  })
-}
+  });
+};

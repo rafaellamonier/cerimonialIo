@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { UserRepository } from "../../repositories/user/UserRepository";
 import { AppError } from "../../errors/AppError";
+import { UserRepository } from "../../repositories/user/UserRepository";
 
 interface IRequest {
 	email: string;
