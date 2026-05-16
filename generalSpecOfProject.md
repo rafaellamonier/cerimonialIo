@@ -7,7 +7,7 @@
 │   ├── supplier
 │   │   ├── CreateSupplierController.ts
 │   │   ├── DeleteSupplierController.ts
-│   │   ├── ListSupplierController.ts
+│   │   ├── ListSuppliersController.ts
 │   │   └── UpdateSupplierStatusController.ts
 │   ├── user
 │   │   ├── CreateUserController.ts
@@ -60,7 +60,6 @@
 │   └── wedding
 │       ├── CreateWeddingService.ts
 │       └── GetWeddingService.ts
-├── teste.md
 └── @types
     └── express
         └── index.d.ts
