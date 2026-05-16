@@ -1,27 +1,16 @@
 import { Router } from "express"
-
-import { CreateUserController }
-from "../controller/user/CreateUserController"
-
-import { LoginUserController }
-from "../controller/user/LoginUserController"
-
+import { CreateUserController } from "../controller/user/CreateUserController"
+import { LoginUserController } from "../controller/user/LoginUserController"
+import { authMiddleware } from "../middlewares/authMiddleware"
+import { ProfileController } from "../controller/user/ProfileController"
 const userRoutes = Router()
 
-const createUserController =
-  new CreateUserController()
+const createUserController = new CreateUserController()
+const loginUserController = new LoginUserController()
+const profileController = new ProfileController()
 
-const loginUserController =
-  new LoginUserController()
-
-userRoutes.post(
-  "/register",
-  createUserController.handle
-)
-
-userRoutes.post(
-  "/login",
-  loginUserController.handle
-)
+userRoutes.post("/register", createUserController.handle)
+userRoutes.post("/login", loginUserController.handle)
+userRoutes.get("/profile", authMiddleware, profileController.handle)
 
 export { userRoutes }

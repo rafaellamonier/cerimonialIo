@@ -25,6 +25,9 @@ export class LoginUserService {
 		const token = jwt.sign(
 			{
 				id: user.id,
+				sequence_id: user.sequence_id,
+				name: user.name,
+				email: user.email,
 			},
 			process.env.JWT_SECRET as string,
 			{
@@ -32,9 +35,12 @@ export class LoginUserService {
 			},
 		);
 
-		return {
-			token,
-			user,
-		};
+		return {token, user: {
+			id: user.id,
+			name: user.name,
+			email: user.email,
+			created_at: user.created_at,
+			updated_at: user.updated_at,
+		}};
 	}
 }
