@@ -5,7 +5,9 @@ import {
 	Generated,
 	CreateDateColumn,
 	UpdateDateColumn,
+	OneToOne,
 } from "typeorm";
+import { Wedding } from "./Wedding"
 
 @Entity("users")
 export class User {
@@ -32,4 +34,7 @@ export class User {
 
 	@UpdateDateColumn()
 	updated_at!: Date;
+
+	@OneToOne(() => Wedding, wedding => wedding.user)
+	wedding!: Wedding;
 }

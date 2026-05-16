@@ -5,6 +5,13 @@ declare namespace Express {
       sequence_id: number
       name: string
       email: string
+    },
+
+    wedding: {
+      id: string
+      couple_name: string
+      wedding_date: Date
+      budget: number
     }
   }
 }

@@ -4,10 +4,9 @@ import { AppDataSource } from "./config/data-source";
 
 AppDataSource.initialize()
 	.then(() => {
-		console.log("Database connected");
-
-		app.listen(3333, () => {
-			console.log("Server running");
+		const port = process.env.PORT || 3333;
+		app.listen(port, () => {
+			console.log(`Server is running on http://localhost:${port}`);
 		});
 	})
 	.catch((error) => {

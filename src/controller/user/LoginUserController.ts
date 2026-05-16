@@ -7,6 +7,7 @@ export class LoginUserController {
     req: Request,
     res: Response
   ) {
+    console.log("teste req.body", req.body);
     const validatedData = loginUserSchema.parse(req.body);
     const service = new LoginUserService();
     const result = await service.execute(validatedData);
