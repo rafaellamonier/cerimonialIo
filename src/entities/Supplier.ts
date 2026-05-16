@@ -11,8 +11,8 @@ import { Wedding } from "./Wedding";
 
 @Entity("suppliers")
 export class Supplier {
-  @PrimaryGeneratedColumn("uuid")
-  id!: string;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
   @Column()
   name!: string;
@@ -34,7 +34,7 @@ export class Supplier {
   status!: string;
 
   @Column()
-  wedding_id!: string;
+  wedding_id!: number;
 
   @ManyToOne(() => Wedding)
     @JoinColumn({

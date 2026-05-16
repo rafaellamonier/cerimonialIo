@@ -253,7 +253,7 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "id": "uuid",
+  "id": 1,
   "couple_name": "John & Jane",
   "wedding_date": "2027-06-15",
   "budget": "15000.00",
@@ -287,7 +287,7 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "id": "uuid",
+  "id": 1,
   "couple_name": "John & Jane",
   "wedding_date": "2027-06-15",
   "budget": "15000.00",
@@ -352,12 +352,12 @@ Authorization: Bearer <token>
 
 ```json
 {
-  "id": "uuid",
+  "id": 1,
   "name": "Buffet Sabor & Arte",
   "category": "Buffet",
   "value": "8500.00",
   "status": "negotiating",
-  "wedding_id": "uuid",
+  "wedding_id": 1,
   "created_at": "2026-05-16T00:00:00.000Z",
   "updated_at": "2026-05-16T00:00:00.000Z"
 }
@@ -388,12 +388,12 @@ Authorization: Bearer <token>
 ```json
 [
   {
-    "id": "uuid",
+    "id": 1,
     "name": "Buffet Sabor & Arte",
     "category": "Buffet",
     "value": "8500.00",
     "status": "negotiating",
-    "wedding_id": "uuid",
+    "wedding_id": 1,
     "created_at": "2026-05-16T00:00:00.000Z",
     "updated_at": "2026-05-16T00:00:00.000Z"
   }
@@ -416,7 +416,7 @@ Authorization: Bearer <token>
 
 | Parâmetro | Tipo | Descrição |
 |-----------|------|-----------|
-| `id` | `uuid` | ID do fornecedor |
+| `id` | `number` | ID do fornecedor |
 
 **Request Body**
 
@@ -459,7 +459,7 @@ Authorization: Bearer <token>
 
 | Parâmetro | Tipo | Descrição |
 |-----------|------|-----------|
-| `id` | `uuid` | ID do fornecedor |
+| `id` | `number` | ID do fornecedor |
 
 **Responses**
 

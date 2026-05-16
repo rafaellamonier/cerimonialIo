@@ -13,8 +13,8 @@ import { Supplier } from "./Supplier";
 
 @Entity("weddings")
 export class Wedding {
-  @PrimaryGeneratedColumn("uuid")
-  id!: string;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
   @Column()
   couple_name!: string;
