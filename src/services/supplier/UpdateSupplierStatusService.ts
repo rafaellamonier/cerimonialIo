@@ -2,7 +2,7 @@ import { AppError } from "../../errors/AppError";
 import { SupplierRepository } from "../../repositories/supplier/SupplierRepository";
 
 export class UpdateSupplierStatusService {
-  async execute(id: string, status: string) {
+  async execute(id: number, status: string) {
     const repository = new SupplierRepository();
     const supplier = await repository.findById(id);
 

@@ -2,7 +2,7 @@ import { AppError } from "../../errors/AppError";
 import { SupplierRepository } from "../../repositories/supplier/SupplierRepository";
 
 export class DeleteSupplierService {
-  async execute(id: string) {
+  async execute(id: number) {
     const repository = new SupplierRepository();
     const supplier = await repository.findById(id);
 

@@ -7,7 +7,7 @@ export class UpdateSupplierStatusController {
     const { id } = req.params;
     const validatedData = updateSupplierStatusSchema.parse(req.body);
     const service = new UpdateSupplierStatusService();
-    const result = await service.execute(id as string, validatedData.status);
+    const result = await service.execute(Number(id), validatedData.status);
 
     return res.json(result);
   };

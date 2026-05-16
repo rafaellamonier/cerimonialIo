@@ -16,8 +16,6 @@ export class ListSuppliersService {
       )
     };
 
-    return supplierRepository.findByWeddingId(
-      wedding.id
-    );
+    return supplierRepository.findByWeddingId(wedding.id);
   };
 };

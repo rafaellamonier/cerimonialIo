@@ -10,7 +10,7 @@ export class SupplierRepository {
     return this.repository.save(supplier);
   };
 
-  async findByWeddingId(wedding_id: string) {
+  async findByWeddingId(wedding_id: number) {
     return this.repository.find({
       where: {
         wedding_id
@@ -21,7 +21,7 @@ export class SupplierRepository {
     });
   };
 
-  async findById(id: string) {
+  async findById(id: number) {
     return this.repository.findOne({ where: { id } });
   };
 
@@ -29,7 +29,7 @@ export class SupplierRepository {
     return this.repository.save(supplier);
   };
 
-  async delete(id: string) {
+  async delete(id: number) {
     return this.repository.delete(id);
   };
 };
