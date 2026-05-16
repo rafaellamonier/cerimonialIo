@@ -1,11 +1,12 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { UserRepository } from "../../repositories/user/UserRepository";
+import { AppError } from "../../errors/AppError";
 
 interface IRequest {
 	email: string;
 	password: string;
-}
+};
 
 export class LoginUserService {
 	async execute({ email, password }: IRequest) {
@@ -13,13 +14,19 @@ export class LoginUserService {
 		const user = await repository.findByEmail(email);
 
 		if (!user) {
-			throw new Error("Email or password invalid");
+			throw new AppError(
+				"Email ou senha inválidos",
+				401
+			);
 		}
 
 		const passwordMatch = await bcrypt.compare(password, user.password);
 
 		if (!passwordMatch) {
-			throw new Error("Email or password invalid");
+			throw new AppError(
+				"Email ou senha inválidos",
+				401
+			);
 		}
 
 		const token = jwt.sign(
@@ -42,5 +49,5 @@ export class LoginUserService {
 			created_at: user.created_at,
 			updated_at: user.updated_at,
 		}};
-	}
+	};
 }

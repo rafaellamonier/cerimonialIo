@@ -1,12 +1,10 @@
-import express from "express"
+import express from "express";
+import { userRoutes } from "./routes/user.routes";
+import { errorMiddleware } from "./middlewares/errorMiddleware";
 
-import { userRoutes }
-from "./routes/user.routes"
+const app = express();
+app.use(express.json());
+app.use("/users", userRoutes);
+app.use(errorMiddleware);
 
-const app = express()
-
-app.use(express.json())
-
-app.use("/users", userRoutes)
-
-export { app }
+export { app };
