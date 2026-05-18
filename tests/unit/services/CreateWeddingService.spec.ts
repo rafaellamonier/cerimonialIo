@@ -1,7 +1,7 @@
-import { describe, it, expect, vi } from "vitest";
-vi.mock("../../../src/repositories/wedding/WeddingRepository");
-import { CreateWeddingService } from "../../../src/services/wedding/CreateWeddingService";
+import { describe, expect, it, vi } from "vitest";
 import { WeddingRepository } from "../../../src/repositories/wedding/WeddingRepository";
+import { CreateWeddingService } from "../../../src/services/wedding/CreateWeddingService";
+vi.mock("../../../src/repositories/wedding/WeddingRepository");
 
 describe("CreateWeddingService", () => {
 	it("should create a wedding", async () => {
@@ -53,4 +53,3 @@ describe("CreateWeddingService", () => {
 		})).rejects.toThrow("User already has a wedding");
 	});
 });
-
