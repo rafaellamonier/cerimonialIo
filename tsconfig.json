@@ -9,9 +9,8 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"skipLibCheck": true,
-		"typeRoots": [
-      		"./src/@types",
-      		"./node_modules/@types"
-    	]
-	}
+		"typeRoots": ["./src/@types", "./node_modules/@types"]
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist", "tests", "vitest.config.ts"]
 }
