@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
-import { SupplierRepository } from "../../../src/repositories/supplier/SupplierRepository";
-import { CreateSupplierService } from "../../../src/services/supplier/CreateSupplierService"
 import { Wedding } from "../../../src/entities/Wedding";
+import { SupplierRepository } from "../../../src/repositories/supplier/SupplierRepository";
 import { WeddingRepository } from "../../../src/repositories/wedding/WeddingRepository";
+import { CreateSupplierService } from "../../../src/services/supplier/CreateSupplierService";
 vi.mock("../../../src/repositories/supplier/SupplierRepository.ts");
 vi.mock("../../../src/repositories/wedding/WeddingRepository.ts");
 
@@ -40,7 +40,6 @@ describe("CreateSupplierService", () => {
 			status: "",
 			user_id: "123",
 		})
-		console.log('teste result', result);
 
 		expect(result).toHaveProperty("id");
 	});

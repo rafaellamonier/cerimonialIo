@@ -7,7 +7,7 @@
 		"dev": "ts-node-dev --respawn --transpile-only src/server.ts",
 		"typeorm": "typeorm-ts-node-commonjs",
 		"build": "node dist/server.js",
-		"test": "vitest",
+		"test": "npx vitest run tests/unit",
 		"test:run": "vitest run",
 		"test:watch": "vitest --watch",
 		"test:coverage": "vitest run --coverage",
