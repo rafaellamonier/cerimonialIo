@@ -1,6 +1,9 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
+import { User } from "../entities/User";
+import { Wedding } from "../entities/Wedding";
+import { Supplier } from "../entities/Supplier";
 
 dotenv.config();
 
@@ -26,15 +29,11 @@ export const AppDataSource = new DataSource({
 
 	logging: false,
 
-	entities: [
-  	process.env.NODE_ENV === "production"
-    	? "dist/entities/*.js"
-    	: "src/entities/*.ts"
-	],
+	entities: [User, Wedding, Supplier],
 	migrations: [
-	process.env.NODE_ENV === "production"
-		? "dist/database/migrations/*.js"
-		: "src/database/migrations/*.ts"
+		process.env.NODE_ENV === "production"
+			? "dist/database/migrations/*.js"
+			: "src/database/migrations/*.ts"
 	],
 	ssl: {
   		rejectUnauthorized: false
