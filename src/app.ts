@@ -18,4 +18,10 @@ app.use("/weddings", weddingRoutes);
 app.use("/suppliers", supplierRoutes);
 app.use(errorMiddleware);
 
+app.get("/health", (req, res) => {
+  return res.json({
+    status: "ok"
+  })
+})
+
 export { app };

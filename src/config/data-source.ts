@@ -22,7 +22,7 @@ export const AppDataSource = new DataSource({
 				database: process.env.DB_NAME,
 		  }),
 
-	synchronize: true,
+	synchronize: false,
 
 	logging: false,
 
@@ -36,4 +36,7 @@ export const AppDataSource = new DataSource({
 		? "dist/database/migrations/*.js"
 		: "src/database/migrations/*.ts"
 	],
+	ssl: {
+  		rejectUnauthorized: false
+	}
 });
