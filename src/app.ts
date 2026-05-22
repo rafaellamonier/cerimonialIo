@@ -6,12 +6,17 @@ import { supplierRoutes } from "./routes/supplier.routes";
 import cors from "cors";
 
 const app = express();
+const allowedOrigins = ["http://localhost:3333",
+    "https://cerimonialio.vercel.app/dashboard.app"];
 app.use(cors({
-  origin: [
-    "http://localhost:3333",
-    "https://cerimonialio.vercel.app/dashboard.app"
-  ]
-}))
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 app.use(express.json());
 app.use("/users", userRoutes);
 app.use("/weddings", weddingRoutes);
