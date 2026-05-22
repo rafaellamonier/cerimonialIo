@@ -3,6 +3,11 @@ import { UserRepository } from "../../../src/repositories/user/UserRepository";
 import { LoginUserService } from "../../../src/services/user/LoginUserService";
 import bcrypt from "bcryptjs";
 vi.mock("../../../src/repositories/user/UserRepository");
+vi.mock("jsonwebtoken", () => ({
+  default: {
+    sign: vi.fn().mockReturnValue("mocked_token"),
+  },
+}));
 
 describe("LoginUserService", () => {
   it("should return a token and user data on valid credentials", async () => {
