@@ -16,9 +16,9 @@ describe("CreateWeddingService", () => {
 			created_at: new Date(),
 			updated_at: new Date(),
 			suppliers: [],
-		})
+		});
 
-    	const service = new CreateWeddingService();
+		const service = new CreateWeddingService();
 
 		const result = await service.execute({
 			couple_name: "Rafael e Ana",
@@ -27,10 +27,10 @@ describe("CreateWeddingService", () => {
 			user_id: "123",
 		});
 
-		expect(result).toHaveProperty("id");	
+		expect(result).toHaveProperty("id");
 	});
 
-	it ("should not create a wedding if user already has one", async () => {
+	it("should not create a wedding if user already has one", async () => {
 		vi.mocked(WeddingRepository.prototype.findByUserId).mockResolvedValue({
 			id: 1,
 			couple_name: "Rafael e Ana",
@@ -45,11 +45,13 @@ describe("CreateWeddingService", () => {
 
 		const service = new CreateWeddingService();
 
-		await expect(service.execute({
-			couple_name: "Rafael e Ana",
-			wedding_date: new Date(),
-			budget: 50000,
-			user_id: "123",
-		})).rejects.toThrow("User already has a wedding");
+		await expect(
+			service.execute({
+				couple_name: "Rafael e Ana",
+				wedding_date: new Date(),
+				budget: 50000,
+				user_id: "123",
+			}),
+		).rejects.toThrow("User already has a wedding");
 	});
 });
