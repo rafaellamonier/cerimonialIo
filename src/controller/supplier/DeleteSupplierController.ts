@@ -5,7 +5,7 @@ export class DeleteSupplierController {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
     const service = [new DeleteSupplierService()];
-    await service[0].execute(id as string);
+    await service[0].execute(Number(id));
 
     return res.status(204).send();
   };
