@@ -3,3 +3,7 @@ node_modules
 docker-compose.yml
 exampleEnvironments.yml
 dist
+documentationBugFix_docker.md
+.env.test
+.agents
+skills-lock.json
