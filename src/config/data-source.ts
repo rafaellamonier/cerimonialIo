@@ -1,9 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
-import { User } from "../entities/User";
-import { Wedding } from "../entities/Wedding";
-import { Supplier } from "../entities/Supplier";
 
 dotenv.config();
 
