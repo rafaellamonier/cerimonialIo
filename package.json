@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+		"start": "node dist/server.js",
 		"typeorm": "typeorm-ts-node-commonjs",
+		"migration:run": "typeorm migration:run -d dist/config/data-source.js",
 		"build": "tsc",
 		"test": "npx vitest run tests/unit",
 		"test:run": "vitest run",
